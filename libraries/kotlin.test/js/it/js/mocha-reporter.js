@@ -1,8 +1,6 @@
 var mocha = require('mocha');
 var Tester = require('./expectedTests');
 
-
-
 module.exports = function(runner) {
   mocha.reporters.Base.call(this, runner);
 

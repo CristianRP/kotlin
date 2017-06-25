@@ -22,11 +22,4 @@ class TestTest {
 
     @Test fun emptyTest() {
     }
-
-    class InnerTest {
-        @Test fun innerTest() {
-            assertTrue { true }
-        }
-    }
-
 }
