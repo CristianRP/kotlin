@@ -4,7 +4,12 @@ var Tester = require('./expectedTests');
 module.exports = function(runner) {
   mocha.reporters.Base.call(this, runner);
 
-  var tester = new Tester();
+  var tester = new Tester({
+      'SimpleTest testFoo': 'fail',
+      'SimpleTest testBar': 'pass',
+      'SimpleTest testFooWrong': 'pending',
+      'TestTest emptyTest': 'pending'
+  });
 
   runner.on('pass', function(test) {
     tester.passed(test.fullTitle());

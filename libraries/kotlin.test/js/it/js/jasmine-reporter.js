@@ -1,5 +1,10 @@
 var Tester = require('./expectedTests');
-var tester = new Tester();
+var tester = new Tester({
+    'SimpleTest testFoo': 'fail',
+    'SimpleTest testBar': 'pass',
+    'SimpleTest testFooWrong': 'pending',
+    'TestTest emptyTest': 'pending'
+});
 
 
 process.on('exit', function() {

@@ -1,10 +1,5 @@
-var Tester = function() {
-    this._testMap = {
-        'SimpleTest testFoo': 'fail',
-        'SimpleTest testBar': 'pass',
-        'SimpleTest testFooWrong': 'pending',
-        'TestTest emptyTest': 'pending'
-    };
+var Tester = function(testMap) {
+    this._testMap = testMap;
 
     this._testCount = {};
 
