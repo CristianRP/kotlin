@@ -4,6 +4,9 @@ var kotlin_test = require('kotlin-test');
 var setAssertHook = function(t) {
     kotlin_test.setAssertHook(function (result, expected, actual, lazyMessage) {
         t.ok(result, lazyMessage());
+        if (!result) {
+            t.end();
+        }
     });
 };
 
