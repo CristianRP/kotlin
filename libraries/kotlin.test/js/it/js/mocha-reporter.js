@@ -1,29 +1,29 @@
 var mocha = require('mocha');
 var Tester = require('./expectedTests');
 
-module.exports = function(runner) {
-  mocha.reporters.Base.call(this, runner);
+module.exports = function (runner) {
+    mocha.reporters.Base.call(this, runner);
 
-  var tester = new Tester({
-      'SimpleTest testFoo': 'fail',
-      'SimpleTest testBar': 'pass',
-      'SimpleTest testFooWrong': 'pending',
-      'TestTest emptyTest': 'pending'
-  });
+    var tester = new Tester({
+                                'SimpleTest testFoo': 'fail',
+                                'SimpleTest testBar': 'pass',
+                                'SimpleTest testFooWrong': 'pending',
+                                'TestTest emptyTest': 'pending'
+                            });
 
-  runner.on('pass', function(test) {
-    tester.passed(test.fullTitle());
-  });
+    runner.on('pass', function (test) {
+        tester.passed(test.fullTitle());
+    });
 
-  runner.on('fail', function(test, err) {
-    tester.failed(test.fullTitle());
-  });
+    runner.on('fail', function (test, err) {
+        tester.failed(test.fullTitle());
+    });
 
-  runner.on('pending', function(test) {
-    tester.pending(test.fullTitle());
-  });
+    runner.on('pending', function (test) {
+        tester.pending(test.fullTitle());
+    });
 
-  runner.on('end', function(){
-    tester.end();
-  });
+    runner.on('end', function () {
+        tester.end();
+    });
 };

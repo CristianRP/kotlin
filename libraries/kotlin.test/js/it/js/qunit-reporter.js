@@ -1,13 +1,13 @@
 var Tester = require('./expectedTests');
 
 var tester = new Tester({
-    'SimpleTest testFoo': 'fail',
-    'SimpleTest testBar': 'pass',
-    'SimpleTest testFooWrong': 'pending',
-    'TestTest emptyTest': 'pending'
-});
+                            'SimpleTest testFoo': 'fail',
+                            'SimpleTest testBar': 'pass',
+                            'SimpleTest testFooWrong': 'pending',
+                            'TestTest emptyTest': 'pending'
+                        });
 
-QUnit.testDone(function(details) {
+QUnit.testDone(function (details) {
     var testName = details.module + ' ' + details.name;
     if (details.skipped) {
         tester.pending(testName);
@@ -18,9 +18,9 @@ QUnit.testDone(function(details) {
     else {
         tester.failed(testName);
     }
-} );
+});
 
-QUnit.done(function( details ) {
+QUnit.done(function (details) {
     details.failed = tester._total - tester._passed;
 });
 
